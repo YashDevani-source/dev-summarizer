@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main, feat/ci]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Prettier check
+        run: pnpm prettier --check .
+
+      - name: App tests
+        run: pnpm --filter app test
+
+      - name: UI build
+        run: pnpm --filter ui build
