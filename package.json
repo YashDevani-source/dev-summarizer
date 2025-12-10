@@ -1,0 +1,19 @@
+{
+  "name": "dev-summarizer",
+  "private": true,
+  "packageManager": "pnpm@10.13.1",
+  "workspaces": ["app", "ui"],
+  "version": "1.0.0",
+  "description": "AI note-summariser API + UI using MERN, OpenRouter, Docker, full CI",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "pnpm -r run dev",
+    "test": "pnpm -r run test"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"  
+  },
+  "keywords": [],
+  "author": "Yash Devani",
+  "license": "ISC"
+}
